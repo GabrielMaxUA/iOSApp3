@@ -3,6 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +12,6 @@
         <!--Trasures-->
         <scene sceneID="Ary-y4-7Q9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n1o-ZF-lsJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Trasures" id="Xj4-nC-KJo" customClass="TreasureList" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zuU-Hh-wr3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -32,10 +33,48 @@
                             <outlet property="delegate" destination="Xj4-nC-KJo" id="K5O-qE-8ce"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Treasures" id="WRQ-Ub-lwH"/>
+                    <navigationItem key="navigationItem" title="Treasures" id="WRQ-Ub-lwH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dAR-7s-iIt">
+                            <connections>
+                                <action selector="openMapView:" destination="Xj4-nC-KJo" id="f46-hg-fla"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1o-ZF-lsJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="382.44274809160305" y="-192.25352112676057"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="1qY-jw-u9I">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="HjL-u3-e7i" customClass="MapViewController" customModule="TreasureHunt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lcV-EN-5vt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zq2-AL-Y47">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="C73-mh-mm2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zq2-AL-Y47" firstAttribute="trailing" secondItem="C73-mh-mm2" secondAttribute="trailing" id="2Qe-kD-sPB"/>
+                            <constraint firstItem="Zq2-AL-Y47" firstAttribute="leading" secondItem="C73-mh-mm2" secondAttribute="leading" id="8ff-Mm-evb"/>
+                            <constraint firstItem="Zq2-AL-Y47" firstAttribute="top" secondItem="lcV-EN-5vt" secondAttribute="top" id="d9R-JS-h5R"/>
+                            <constraint firstAttribute="bottom" secondItem="Zq2-AL-Y47" secondAttribute="bottom" id="yfY-Vl-cnz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eP8-tC-fIb"/>
+                    <connections>
+                        <outlet property="mapView" destination="Zq2-AL-Y47" id="SXs-Y1-MYW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYh-oL-GMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138" y="-192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Luy-aI-tOv">
