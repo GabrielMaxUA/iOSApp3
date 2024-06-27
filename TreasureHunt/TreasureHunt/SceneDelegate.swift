@@ -32,7 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let loadedTreasures = try? decoder.decode([Treasure].self, from: savedTreasures) {
                 treasures = loadedTreasures
             }
-        } else {
+       } 
+            else {
             // Load default treasures if none are saved
             treasures = [
                 Treasure(name: "Case of Money", coordinate: CLLocationCoordinate2D(latitude: 43.68974781, longitude: -79.33157735)),
